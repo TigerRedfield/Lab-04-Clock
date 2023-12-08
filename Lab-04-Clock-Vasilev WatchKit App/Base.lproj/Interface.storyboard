@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="16097.3" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch44"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="16012"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+    </dependencies>
+    <scenes>
+        <!--StartupInterfaceController-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller identifier="StartupInterfaceController" id="AgC-eL-Hgc" customClass="StartupInterfaceController" customModule="Lab_04_Clock_Vasilev_WatchKit_Extension">
+                    <items>
+                        <imageView alignment="center" verticalAlignment="center" image="logo" id="ZgN-xx-2QN"/>
+                        <label alignment="center" verticalAlignment="center" text="CookBook" id="pPm-DW-d96">
+                            <color key="textColor" name="White"/>
+                            <fontDescription key="font" style="UICTFontTextStyleTitle3"/>
+                        </label>
+                    </items>
+                    <connections>
+                        <segue destination="Sxf-xp-qgm" kind="relationship" relationship="nextPage" id="cCR-mq-pTa"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="345"/>
+        </scene>
+        <!--TableInterfaceController-->
+        <scene sceneID="eB3-6H-rwy">
+            <objects>
+                <controller identifier="TableInterfaceController" id="Sxf-xp-qgm" customClass="TableInterfaceController" customModule="Lab_04_Clock_Vasilev_WatchKit_Extension">
+                    <items>
+                        <table alignment="left" id="trV-n8-PBR">
+                            <items>
+                                <tableRow identifier="myrow" id="smT-RS-Hzm" customClass="TableRow" customModule="Lab_04_Clock_Vasilev_WatchKit_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="HUb-To-sin">
+                                        <items>
+                                            <imageView width="32" height="32" alignment="left" verticalAlignment="center" image="cube" catalog="system" id="cMk-Xc-Sxj"/>
+                                            <label alignment="left" verticalAlignment="center" text="(recipe name)" id="Qli-Xq-HLM"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="recipeIcon" destination="cMk-Xc-Sxj" id="4VW-dj-Fs2"/>
+                                        <outlet property="recipeName" destination="Qli-Xq-HLM" id="32G-Fe-or4"/>
+                                        <segue destination="kV8-7f-3b2" kind="push" id="M40-iw-xRm"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="trV-n8-PBR" id="MyZ-XL-ySH"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="428.695652173913" y="344.55357142857144"/>
+        </scene>
+        <!--DetailsInterfaceController-->
+        <scene sceneID="x0a-YT-VsF">
+            <objects>
+                <controller identifier="DetailsInterfaceController" id="kV8-7f-3b2" customClass="DetailsInterfaceController" customModule="Lab_04_Clock_Vasilev_WatchKit_Extension">
+                    <items>
+                        <group width="1" alignment="center" id="auY-wX-Z1x">
+                            <items>
+                                <imageView width="32" height="32" alignment="center" image="drop.triangle" catalog="system" id="cfG-aB-cJC"/>
+                                <label alignment="center" verticalAlignment="center" text="(name)" id="yik-Vr-6Vv"/>
+                            </items>
+                        </group>
+                        <imageView width="0.90000000000000002" height="0.59999999999999998" alignment="center" image="book" catalog="system" contentMode="scaleAspectFit" id="lMm-NC-ODb"/>
+                        <group width="1" alignment="left" layout="vertical" id="OIN-05-O6q">
+                            <items>
+                                <label alignment="left" text="Author:" id="0Vx-Jt-1gj"/>
+                                <label alignment="left" text="(author)" id="F3D-t4-Nyf"/>
+                            </items>
+                        </group>
+                        <label alignment="left" text="Description:" id="qEA-w9-0Po"/>
+                        <button alignment="left" id="aW8-GL-4Nj">
+                            <group key="contentGroup" width="1" alignment="left" id="wdo-x5-HYs">
+                                <items>
+                                    <label alignment="left" text="(description)" id="GqO-gg-Mu1"/>
+                                </items>
+                            </group>
+                            <connections>
+                                <segue destination="tFc-7Q-h7S" kind="modal" id="8q4-DR-WNd"/>
+                            </connections>
+                        </button>
+                        <slider width="1" alignment="left" value="1" maximum="5" steps="5" minimumImage="star" catalog="system" maximumImage="star.fill" id="Dot-VR-k1W">
+                            <color key="color" name="Orange"/>
+                            <connections>
+                                <action selector="onRatingChange:" destination="kV8-7f-3b2" id="cs3-oP-pgm"/>
+                            </connections>
+                        </slider>
+                    </items>
+                    <connections>
+                        <outlet property="recipeAuthor" destination="F3D-t4-Nyf" id="j54-lb-W4j"/>
+                        <outlet property="recipeIcon" destination="cfG-aB-cJC" id="9ix-Kj-Mre"/>
+                        <outlet property="recipeImage" destination="lMm-NC-ODb" id="igR-Y8-ASr"/>
+                        <outlet property="recipeName" destination="yik-Vr-6Vv" id="N2b-1N-h1Q"/>
+                        <outlet property="recipeRating" destination="Dot-VR-k1W" id="3un-II-Lyb"/>
+                        <outlet property="recipeText" destination="GqO-gg-Mu1" id="9Mo-y9-gDB"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="637" y="345"/>
+        </scene>
+        <!--Description Interface Controller-->
+        <scene sceneID="sMx-nG-C70">
+            <objects>
+                <controller id="tFc-7Q-h7S" customClass="DescriptionInterfaceController" customModule="Lab_04_Clock_Vasilev_WatchKit_Extension">
+                    <items>
+                        <label alignment="left" text="(full description)" numberOfLines="20" id="MdY-px-xMW"/>
+                    </items>
+                    <connections>
+                        <outlet property="longText" destination="MdY-px-xMW" id="GsR-Wx-CRV"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="846" y="345"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="book" catalog="system" width="128" height="99"/>
+        <image name="cube" catalog="system" width="128" height="124"/>
+        <image name="drop.triangle" catalog="system" width="128" height="111"/>
+        <image name="logo" width="96" height="96"/>
+        <image name="star" catalog="system" width="128" height="115"/>
+        <image name="star.fill" catalog="system" width="128" height="115"/>
+        <namedColor name="Orange">
+            <color red="1" green="0.64800000190734863" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="White">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

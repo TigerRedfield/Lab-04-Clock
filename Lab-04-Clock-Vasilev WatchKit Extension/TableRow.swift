@@ -9,5 +9,8 @@
 import WatchKit
 
 class TableRow: NSObject {
-
+    @IBOutlet weak var recipeName: WKInterfaceLabel!
+    @IBOutlet weak var recipeIcon: WKInterfaceImage!
+    
+    
 }
